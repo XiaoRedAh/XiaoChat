@@ -1,4 +1,4 @@
-package org.example.protocol;
+package org.chat.server.protocol;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

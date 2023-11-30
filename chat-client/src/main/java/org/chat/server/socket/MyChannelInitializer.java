@@ -1,9 +1,9 @@
-package org.example.socket;
+package org.chat.server.socket;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.SocketChannel;
-import org.example.codec.ObjDecoder;
-import org.example.codec.ObjEncoder;
+import org.chat.server.codec.ObjDecoder;
+import org.chat.server.codec.ObjEncoder;
 
 /**
  * @author XiaoRed

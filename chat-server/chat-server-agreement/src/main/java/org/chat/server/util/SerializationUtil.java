@@ -1,4 +1,4 @@
-package org.example.util;
+package org.chat.server.util;
 
 import com.dyuproject.protostuff.LinkedBuffer;
 import com.dyuproject.protostuff.ProtostuffIOUtil;

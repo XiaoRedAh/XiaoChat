@@ -1,4 +1,4 @@
-package org.example.protocol;
+package org.chat.server.protocol;
 
 /**
  * 定义各个传输对象的指令码

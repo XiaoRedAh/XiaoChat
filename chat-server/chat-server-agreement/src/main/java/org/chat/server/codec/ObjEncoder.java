@@ -1,10 +1,10 @@
-package org.example.codec;
+package org.chat.server.codec;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
-import org.example.protocol.Packet;
-import org.example.util.SerializationUtil;
+import org.chat.server.protocol.Packet;
+import org.chat.server.util.SerializationUtil;
 
 /**
  * 自定义编码器，将待发送的业务对象(继承于Packet)转换为字节，并封装为统一的通信协议格式

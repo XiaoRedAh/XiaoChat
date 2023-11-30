@@ -1,4 +1,4 @@
-package org.example.socket;
+package org.chat.server.socket;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;

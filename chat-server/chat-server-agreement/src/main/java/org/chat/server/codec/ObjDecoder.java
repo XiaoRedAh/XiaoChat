@@ -1,10 +1,10 @@
-package org.example.codec;
+package org.chat.server.codec;
 
 import io.netty.handler.codec.ByteToMessageDecoder;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
-import org.example.protocol.Packet;
-import org.example.util.SerializationUtil;
+import org.chat.server.protocol.Packet;
+import org.chat.server.util.SerializationUtil;
 
 import java.util.List;
 

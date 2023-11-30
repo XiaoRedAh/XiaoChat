@@ -1,4 +1,4 @@
-package org.example.event;
+package org.chat.server.event;
 
 import org.chat.ui.view.login.ILoginEvent;
 
