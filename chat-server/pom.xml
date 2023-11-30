@@ -21,23 +21,23 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-        <netty_version>4.1.36.Final</netty_version>
-    </properties>
+<!--    <properties>-->
+<!--        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+<!--        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>-->
+<!--        <java.version>1.8</java.version>-->
+<!--        <netty_version>4.1.36.Final</netty_version>-->
+<!--    </properties>-->
 
-    <dependencyManagement>
-        <dependencies>
-            <!-- Netty 4.1.36 -->
-            <dependency>
-                <groupId>io.netty</groupId>
-                <artifactId>netty-all</artifactId>
-                <version>${netty_version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+<!--    <dependencyManagement>-->
+<!--        <dependencies>-->
+<!--            &lt;!&ndash; Netty 4.1.36 &ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>io.netty</groupId>-->
+<!--                <artifactId>netty-all</artifactId>-->
+<!--                <version>${netty_version}</version>-->
+<!--            </dependency>-->
+<!--        </dependencies>-->
+<!--    </dependencyManagement>-->
 
     <build>
         <resources>

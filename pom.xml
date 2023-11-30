@@ -19,6 +19,18 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <netty_version>4.1.36.Final</netty_version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Netty 4.1.36 -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty_version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
