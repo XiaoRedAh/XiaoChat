@@ -2,7 +2,7 @@ package org.example.event;
 
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
-import org.itstack.naive.chat.ui.view.chat.IChatEvent;
+import org.chat.ui.view.chat.IChatEvent;
 
 import java.util.Date;
 

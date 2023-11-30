@@ -1,6 +1,6 @@
 package org.example.event;
 
-import org.itstack.naive.chat.ui.view.login.ILoginEvent;
+import org.chat.ui.view.login.ILoginEvent;
 
 /**
  * @author XiaoRed

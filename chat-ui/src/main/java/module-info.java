@@ -3,7 +3,6 @@ module org.itstack.naive.chat.ui {
     requires javafx.fxml;
     requires java.desktop;
 
-
-    opens org.itstack.naive.chat.ui to javafx.fxml;
-    exports org.itstack.naive.chat.ui;
+    opens org.chat.ui to javafx.fxml;
+    exports org.chat.ui;
 }
