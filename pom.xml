@@ -12,6 +12,7 @@
         <module>chat-client</module>
         <module>chat-server</module>
         <module>chat-ui</module>
+        <module>chat-server/chat-server-agreement</module>
     </modules>
 
     <properties>
