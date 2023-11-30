@@ -1,4 +1,4 @@
-package org.chat.server;
+package org.chat.client;
 
 /**
  * @author XiaoRed

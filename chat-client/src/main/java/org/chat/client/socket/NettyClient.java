@@ -1,4 +1,4 @@
-package org.chat.server.socket;
+package org.chat.client.socket;
 
 
 import io.netty.bootstrap.Bootstrap;

@@ -1,4 +1,4 @@
-package org.chat.server.event;
+package org.chat.client.event;
 
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
