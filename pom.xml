@@ -20,15 +20,36 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <netty_version>4.1.36.Final</netty_version>
+        <mysql_version>8.0.27</mysql_version>
+        <mybatis_version>3.5.11</mybatis_version>
+        <lombox_version>1.18.28</lombox_version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!--lombox-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombox_version}</version>
+            </dependency>
             <!-- Netty 4.1.36 -->
             <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
                 <version>${netty_version}</version>
+            </dependency>
+            <!--mysql-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql_version}</version>
+            </dependency>
+            <!--mybatis-->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis_version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
