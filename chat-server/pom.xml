@@ -10,6 +10,7 @@
 
     <modules>
         <module>chat-server-agreement</module>
+        <module>chat-server-ddd</module>
     </modules>
 
     <packaging>pom</packaging>
