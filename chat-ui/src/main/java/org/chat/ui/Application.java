@@ -112,7 +112,7 @@ public class Application extends javafx.application.Application {
         ILoginMethod login = new LoginController((userId, userPassword) -> {
             System.out.println("登陆 userId：" + userId + "userPassword：" + userPassword);
         }, chat);
-//        login.doShow();
+        login.doShow();
     }
 
     public static void main(String[] args) {

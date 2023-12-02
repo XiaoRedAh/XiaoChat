@@ -18,9 +18,9 @@ public class ChatRecord  {
     //自增ID@TableId
     private Long id;
     //自己ID
-    private String userid;
+    private String userId;
     //好友ID
-    private String friendTd;
+    private String friendId;
     //消息内容
     private String msgContent;
     //消息时间

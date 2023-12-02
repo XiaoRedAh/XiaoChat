@@ -1,6 +1,7 @@
 package org.chat.server.infrastructure.dao;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.chat.server.infrastructure.po.User;
 
 
 /**
@@ -12,4 +13,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface IUserDao {
 
+    String queryUserPassword(String userId);
+
+    User queryUserById(String userId);
 }

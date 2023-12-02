@@ -1,5 +1,8 @@
 package org.chat.server.protocol;
 
+import org.chat.server.protocol.login.LoginRequest;
+import org.chat.server.protocol.login.LoginResponse;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -19,7 +22,8 @@ public abstract class Packet {
      * 将所有<指令码，传输对象>的映射关系提前存到packetType中
      */
     static {
-
+        packetType.put(Command.LoginRequest, LoginRequest.class);
+        packetType.put(Command.LoginResponse, LoginResponse.class);
     }
 
     /**

@@ -6,4 +6,6 @@ package org.chat.server.protocol;
  * @date 2023/11/30 15:08
  */
 public interface Command {
+    Byte LoginRequest = 1;
+    Byte LoginResponse = 2;
 }

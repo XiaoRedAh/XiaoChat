@@ -2,6 +2,8 @@ package org.chat.server.infrastructure.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 
 /**
  * (UserGroup)表数据库访问层
@@ -12,4 +14,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface IUserGroupDao {
 
+    List<String> queryUserGroupsIdList(String userId);
 }

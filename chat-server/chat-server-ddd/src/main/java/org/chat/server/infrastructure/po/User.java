@@ -18,9 +18,9 @@ public class User  {
     //自增ID@TableId
     private Long id;
     //用户ID
-    private String userid;
+    private String userId;
     //用户昵称
-    private String userNickname;
+    private String userNickName;
     //用户头像
     private String userHead;
     //用户密码

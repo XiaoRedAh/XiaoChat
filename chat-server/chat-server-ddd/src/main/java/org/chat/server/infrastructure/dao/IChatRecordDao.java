@@ -2,6 +2,9 @@ package org.chat.server.infrastructure.dao;
 
 
 import org.apache.ibatis.annotations.Mapper;
+import org.chat.server.infrastructure.po.ChatRecord;
+
+import java.util.List;
 
 /**
  * (ChatRecord)表数据库访问层
@@ -12,4 +15,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface IChatRecordDao {
 
+    List<ChatRecord> queryUserChatRecordList(String talkId, String userId);
+
+    List<ChatRecord> queryGroupsChatRecordList(String talkId, String userId);
 }

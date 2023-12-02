@@ -1,6 +1,9 @@
 package org.chat.server.infrastructure.dao;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.chat.server.infrastructure.po.TalkBox;
+
+import java.util.List;
 
 
 /**
@@ -12,4 +15,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ITalkBoxDao {
 
+    List<TalkBox> queryTalkBoxList(String userId);
 }

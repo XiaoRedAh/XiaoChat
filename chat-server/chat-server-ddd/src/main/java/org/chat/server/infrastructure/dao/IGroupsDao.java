@@ -1,6 +1,7 @@
 package org.chat.server.infrastructure.dao;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.chat.server.infrastructure.po.Groups;
 
 
 /**
@@ -12,4 +13,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface IGroupsDao {
 
+    Groups queryGroupsById(String talkId);
 }
