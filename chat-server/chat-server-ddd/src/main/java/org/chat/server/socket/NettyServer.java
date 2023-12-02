@@ -18,13 +18,17 @@ import java.net.InetSocketAddress;
 import java.util.concurrent.Callable;
 
 /**
+ * Netty服务实现Callable的call方法，在call方法中进行Netty服务端的启动
+ * 实现Callable的类，可以当作线程任务交给线程池执行
+ * 线程池会分配给这个类一个线程，去执行call方法
+ * 这样，Netty服务端的启动就是一个交给其他线程执行的异步操作，不会影响(阻塞)主线程，主线程只需要等它执行完后，拿结果即可
  * @author XiaoRed
  * @date 2023/12/1 15:26
  */
 @Service("nettyServer")
 public class NettyServer implements Callable<Channel> {
 
-    private Logger logger = LoggerFactory.getLogger(NettyServer.class);
+    private final Logger logger = LoggerFactory.getLogger(NettyServer.class);
     @Resource
     private UserService userService;
     private final EventLoopGroup bossGroup = new NioEventLoopGroup(2);

@@ -29,27 +29,30 @@ public class Application extends javafx.application.Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // 1. 启动窗口
+        //1. 初始化登录，聊天method，展示登录界面
         IChatMethod chat = new ChatController(new ChatEvent());
         ILoginMethod login = new LoginController(new LoginEvent(), chat);
         login.doShow();
 
+        //2. 初始化UIService，将chat和login装入
         UIService uiService = new UIService();
         uiService.setChat(chat);
         uiService.setLogin(login);
 
-        // 2. 启动socket连接
-        logger.info("NettyClient连接服务开始 inetHost：{} inetPort：{}", "127.0.0.1", 7397);
+        //3. 多线程启动Netty客户端
+        logger.info("Netty客户端连接服务开始 inetHost：{} inetPort：{}", "127.0.0.1", 3000);
         NettyClient nettyClient = new NettyClient(uiService);
+        //Netty客户端实现了Callable接口，可以把它作为线程任务交给线程池去执行call方法，这样一来，Netty客户端的启动就是异步操作，主线程继续做其它事，等异步任务做完后，主线程再来拿执行结果
         Future<Channel> future = executorService.submit(nettyClient);
         Channel channel = future.get();
-        if (null == channel) throw new RuntimeException("netty client start error channel is null");
+        if (null == channel) throw new RuntimeException("Netty客户端启动失败：channel is null");
 
+        //4. 每0.5秒检测一次channel是否为active状态，直到channel变为active状态
         while (!nettyClient.isActive()) {
-            logger.info("NettyClient启动服务 ...");
+            logger.info("Netty客户端正在进行连接服务...");
             Thread.sleep(500);
         }
-        logger.info("NettyClient连接服务完成 {}", channel.localAddress());
+        logger.info("Netty客户端连接服务完成 {}", channel.localAddress());
 
     }
 
