@@ -8,4 +8,8 @@ package org.chat.server.protocol;
 public interface Command {
     Byte LoginRequest = 1;
     Byte LoginResponse = 2;
+    Byte AddFriendRequest = 3;
+    Byte AddFriendResponse = 4;
+    Byte SearchFriendRequest = 5;
+    Byte SearchFriendResponse = 6;
 }

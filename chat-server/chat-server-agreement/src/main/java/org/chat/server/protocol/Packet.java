@@ -1,5 +1,9 @@
 package org.chat.server.protocol;
 
+import org.chat.server.protocol.friend.AddFriendRequest;
+import org.chat.server.protocol.friend.AddFriendResponse;
+import org.chat.server.protocol.friend.SearchFriendRequest;
+import org.chat.server.protocol.friend.SearchFriendResponse;
 import org.chat.server.protocol.login.LoginRequest;
 import org.chat.server.protocol.login.LoginResponse;
 
@@ -24,6 +28,10 @@ public abstract class Packet {
     static {
         packetType.put(Command.LoginRequest, LoginRequest.class);
         packetType.put(Command.LoginResponse, LoginResponse.class);
+        packetType.put(Command.AddFriendRequest, AddFriendRequest.class);
+        packetType.put(Command.AddFriendResponse, AddFriendResponse.class);
+        packetType.put(Command.SearchFriendRequest, SearchFriendRequest.class);
+        packetType.put(Command.SearchFriendResponse, SearchFriendResponse.class);
     }
 
     /**

@@ -3,6 +3,7 @@ package org.chat.server.domain.user.service;
 import org.chat.server.application.UserService;
 import org.chat.server.domain.user.model.*;
 import org.chat.server.domain.user.repository.IUserRepository;
+import org.chat.server.infrastructure.po.UserFriend;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 
@@ -56,5 +57,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<ChatRecordInfo> queryChatRecordInfoList(String talkId, String userId, Integer talkType) {
         return userRepository.queryChatRecordInfoList(talkId, userId, talkType);
+    }
+
+    @Override
+    public List<LuckUserInfo> queryFuzzyUserInfoList(String userId, String searchKey) {
+        return userRepository.queryFuzzyUserInfoList(userId, searchKey);
+    }
+
+    @Override
+    public void addUserFriend(List<UserFriend> userFriendList) {
+        userRepository.addUserFriend(userFriendList);
     }
 }

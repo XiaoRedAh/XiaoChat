@@ -18,12 +18,17 @@ public class UserFriend  {
     //自增ID@TableId
     private Long id;
     //用户ID
-    private Long userid;
+    private String userId;
     //好友用户ID
-    private Long userFriendId;
+    private String userFriendId;
     //创建时间
     private Date createTime;
     //更新时间
     private Date updateTime;
+
+    public UserFriend(String userId, String friendId) {
+        this.userId = userId;
+        this.userFriendId = friendId;
+    }
 }
 

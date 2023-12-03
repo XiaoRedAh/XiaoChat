@@ -40,7 +40,7 @@ public class Application extends javafx.application.Application {
         uiService.setLogin(login);
 
         //3. 多线程启动Netty客户端
-        logger.info("Netty客户端连接服务开始 inetHost：{} inetPort：{}", "127.0.0.1", 3000);
+        logger.info("Netty客户端正在启动 inetHost：{} inetPort：{}", "127.0.0.1", 3000);
         NettyClient nettyClient = new NettyClient(uiService);
         //Netty客户端实现了Callable接口，可以把它作为线程任务交给线程池去执行call方法，这样一来，Netty客户端的启动就是异步操作，主线程继续做其它事，等异步任务做完后，主线程再来拿执行结果
         Future<Channel> future = executorService.submit(nettyClient);

@@ -50,7 +50,7 @@ public class SocketChannelUtil {
         userChannel.remove(userId);
     }
 
-    public static Channel getChannelByUserId(String userId) {
+    public static Channel getChannel(String userId) {
         return userChannel.get(userId);
     }
 

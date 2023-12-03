@@ -15,4 +15,8 @@ public class BeanUtil {
     public static synchronized void addBean(String name, Object obj) {cacheMap.put(name, obj);}
 
     public static<T> T  getBean(String name) {return (T) cacheMap.get(name);}
+
+    public static <T> T getBean(String name, Class<T> t) {
+        return (T) cacheMap.get(name);
+    }
 }

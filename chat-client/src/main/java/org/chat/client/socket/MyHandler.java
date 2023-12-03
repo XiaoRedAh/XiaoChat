@@ -3,6 +3,7 @@ package org.chat.client.socket;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import org.chat.client.application.UIService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,6 +16,10 @@ public abstract class MyHandler<T> extends SimpleChannelInboundHandler<T> {
 
     protected Logger logger = LoggerFactory.getLogger(MyHandler.class);
 
+    protected UIService uiService;
+
+    public MyHandler(UIService uiService) {this.uiService = uiService;}
+
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, T msg) throws Exception {
         channelRead(ctx.channel(), msg);
@@ -25,7 +30,7 @@ public abstract class MyHandler<T> extends SimpleChannelInboundHandler<T> {
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         super.channelInactive(ctx);
-        logger.info("断开连接了...");
+        logger.info("连接断开了...");
     }
 
     @Override

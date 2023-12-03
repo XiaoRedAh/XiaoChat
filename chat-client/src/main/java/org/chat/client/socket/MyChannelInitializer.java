@@ -3,7 +3,9 @@ package org.chat.client.socket;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.SocketChannel;
 import org.chat.client.application.UIService;
+import org.chat.client.socket.handler.AddFriendHandler;
 import org.chat.client.socket.handler.LoginHandler;
+import org.chat.client.socket.handler.SearchFriendHandler;
 import org.chat.server.codec.ObjDecoder;
 import org.chat.server.codec.ObjEncoder;
 
@@ -24,6 +26,8 @@ public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
                 .addLast(new ObjDecoder()) //对象解码器
                 //todo：后续业务功能实现时，不断补全接收数据实现方法
                 .addLast(new LoginHandler(uiService))
+                .addLast(new AddFriendHandler(uiService))
+                .addLast(new SearchFriendHandler(uiService))
                 .addLast(new ObjEncoder()); //对象编码器
 
     }

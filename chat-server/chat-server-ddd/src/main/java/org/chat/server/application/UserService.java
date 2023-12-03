@@ -1,6 +1,7 @@
 package org.chat.server.application;
 
 import org.chat.server.domain.user.model.*;
+import org.chat.server.infrastructure.po.UserFriend;
 
 import java.util.List;
 
@@ -53,4 +54,18 @@ public interface UserService {
      * @return 聊天记录(10条)
      */
     List<ChatRecordInfo> queryChatRecordInfoList(String talkId, String userId, Integer talkType);
+
+    /**
+     * 一次性入库多条好友记录
+     * @param userFriendList 多条好友记录
+     */
+    void addUserFriend(List<UserFriend> userFriendList);
+
+    /**
+     * 模糊查询用户
+     * @param userId    用户ID
+     * @param searchKey 用户名、用户ID
+     * @return < 10个用户集合
+     */
+    List<LuckUserInfo> queryFuzzyUserInfoList(String userId, String searchKey);
 }

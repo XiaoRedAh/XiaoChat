@@ -9,5 +9,12 @@
         select userId, userNickName, userHead from user where userId = #{userId}
     </select>
 
+    <select id="queryFuzzyUserList" parameterType="java.lang.String" resultType="org.chat.server.infrastructure.po.User">
+        select userId, userNickName, userHead
+        from user where userId != #{userId} and (userId like "%"#{searchKey}"%" or userNickName like "%"#{searchKey}"%")
+        order by id desc
+        limit 10
+    </select>
+
 
 </mapper>

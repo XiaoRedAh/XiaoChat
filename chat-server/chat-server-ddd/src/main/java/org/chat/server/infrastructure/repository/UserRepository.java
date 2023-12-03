@@ -3,10 +3,8 @@ package org.chat.server.infrastructure.repository;
 import org.chat.server.domain.user.model.*;
 import org.chat.server.domain.user.repository.IUserRepository;
 import org.chat.server.infrastructure.dao.*;
-import org.chat.server.infrastructure.po.ChatRecord;
-import org.chat.server.infrastructure.po.Groups;
-import org.chat.server.infrastructure.po.TalkBox;
-import org.chat.server.infrastructure.po.User;
+import org.chat.server.infrastructure.po.*;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -120,5 +118,31 @@ public class UserRepository implements IUserRepository {
             chatRecordInfoList.add(chatRecordInfo);
         }
         return chatRecordInfoList;
+    }
+
+    @Override
+    public List<LuckUserInfo> queryFuzzyUserInfoList(String userId, String searchKey) {
+        List<LuckUserInfo> luckUserInfoList = new ArrayList<>();
+        List<User> userList = userDao.queryFuzzyUserList(userId, searchKey);
+        for (User user : userList) {
+            LuckUserInfo userInfo = new LuckUserInfo(user.getUserId(), user.getUserNickName(), user.getUserHead(), 0);
+            UserFriend req = new UserFriend();
+            req.setUserId(userId);
+            req.setUserFriendId(user.getUserId());
+            UserFriend userFriend = userFriendDao.queryUserFriendById(req);
+            if (null != userFriend) {
+                userInfo.setStatus(2);
+            }
+            luckUserInfoList.add(userInfo);
+        }
+        return luckUserInfoList;
+    }
+
+    @Override
+    public void addUserFriend(List<UserFriend> userFriendList) {
+        try {
+            userFriendDao.addUserFriendList(userFriendList);
+        } catch (DuplicateKeyException ignored) {
+        }
     }
 }
