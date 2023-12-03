@@ -30,11 +30,13 @@ public abstract class MyHandler<T> extends SimpleChannelInboundHandler<T> {
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         super.channelInactive(ctx);
-        logger.info("连接断开了...");
+        logger.info("与服务端的连接断开了...");
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        logger.error("与服务端通讯中发生异常：" + cause.getMessage() + "打印异常路径如下：");
+        cause.printStackTrace();
         logger.info("关闭" + ctx.channel().id());
     }
 }

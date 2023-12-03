@@ -43,8 +43,8 @@ public abstract class MyHandler<T> extends SimpleChannelInboundHandler<T> {
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        logger.error("与客户端" + ctx.channel().remoteAddress() + "在通讯中发生异常：" + cause.getMessage() + " 打印异常路径如下：");
         cause.printStackTrace();
-        //logger.error("远程地址为" + ctx.channel().remoteAddress() + "的连接发生异常：" + cause.getMessage());
         SocketChannelUtil.removeChannel(ctx.channel().id().toString());
         SocketChannelUtil.removeChannelGroupByChannel(ctx.channel());
     }
