@@ -83,4 +83,10 @@ public interface UserService {
      * @param talkId 对话框ID
      */
     void deleteUserTalk(String userId, String talkId);
+
+    /**
+     * 异步添加聊天记录
+     * @param chatRecordInfo 聊天记录信息
+     */
+    void asyncAppendChatRecord(ChatRecordInfo chatRecordInfo);
 }

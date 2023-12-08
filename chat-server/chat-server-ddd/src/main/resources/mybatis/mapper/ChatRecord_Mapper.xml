@@ -17,4 +17,11 @@
         limit 10
     </select>
 
+    <insert id="appendChatRecord" parameterType="org.chat.server.infrastructure.po.ChatRecord">
+        INSERT INTO chat_record
+        ( userId, friendId, talkType, msgContent, msgType, msgDate, createTime, updateTime )
+        VALUES
+            ( #{userId}, #{friendId}, #{talkType}, #{msgContent}, #{msgType}, #{msgDate}, now(), now() )
+    </insert>
+
 </mapper>

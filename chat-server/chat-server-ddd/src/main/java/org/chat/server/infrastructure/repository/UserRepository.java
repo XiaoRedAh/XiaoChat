@@ -163,4 +163,16 @@ public class UserRepository implements IUserRepository {
     public void deleteUserTalk(String userId, String talkId) {
         talkBoxDao.deleteUserTalk(userId, talkId);
     }
+
+    @Override
+    public void appendChatRecord(ChatRecordInfo chatRecordInfo) {
+        ChatRecord chatRecord = new ChatRecord();
+        chatRecord.setUserId(chatRecordInfo.getUserId());
+        chatRecord.setFriendId(chatRecordInfo.getFriendId());
+        chatRecord.setMsgContent(chatRecordInfo.getMsgContent());
+        chatRecord.setMsgType(chatRecordInfo.getMsgType());
+        chatRecord.setMsgDate(chatRecordInfo.getMsgDate());
+        chatRecord.setTalkType(chatRecordInfo.getTalkType());
+        chatRecordDao.appendChatRecord(chatRecord);
+    }
 }

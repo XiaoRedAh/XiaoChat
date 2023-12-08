@@ -78,4 +78,10 @@ public interface IUserRepository {
      * @param talkId  对话框ID
      */
     void deleteUserTalk(String userId, String talkId);
+
+    /**
+     * 添加聊天记录
+     * @param chatRecordInfo 聊天记录信息
+     */
+    void appendChatRecord(ChatRecordInfo chatRecordInfo);
 }

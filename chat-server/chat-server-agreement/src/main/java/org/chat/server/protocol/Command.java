@@ -15,4 +15,6 @@ public interface Command {
     Byte TalkNoticeRequest = 7;
     Byte TalkNoticeResponse = 8;
     Byte DelTalkRequest = 9;
+    Byte MsgRequest = 10;
+    Byte MsgResponse = 11;
 }

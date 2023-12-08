@@ -18,4 +18,6 @@ public interface IChatRecordDao {
     List<ChatRecord> queryUserChatRecordList(String talkId, String userId);
 
     List<ChatRecord> queryGroupsChatRecordList(String talkId, String userId);
+
+    void appendChatRecord(ChatRecord chatRecord);
 }

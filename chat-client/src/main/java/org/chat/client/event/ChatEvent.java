@@ -6,6 +6,7 @@ import javafx.scene.layout.Pane;
 import org.chat.client.infrastructure.util.BeanUtil;
 import org.chat.server.protocol.friend.AddFriendRequest;
 import org.chat.server.protocol.friend.SearchFriendRequest;
+import org.chat.server.protocol.msg.MsgRequest;
 import org.chat.server.protocol.talk.DelTalkRequest;
 import org.chat.server.protocol.talk.TalkNoticeRequest;
 import org.chat.ui.view.chat.IChatEvent;
@@ -24,6 +25,12 @@ public class ChatEvent implements IChatEvent {
 
     @Override
     public void doSendMsg(String userId, String talkId, Integer talkType, String msg, Integer msgType, Date msgDate) {
+        Channel channel = BeanUtil.getBean("Channel", Channel.class);
+        if (0 == talkType) { // 好友0
+            channel.writeAndFlush(new MsgRequest(userId, talkId, msg, msgType, msgDate));
+        }else{
+            //todo:发送群聊消息请求
+        }
 
     }
 

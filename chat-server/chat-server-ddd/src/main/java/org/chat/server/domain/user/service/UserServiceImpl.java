@@ -75,6 +75,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void asyncAppendChatRecord(final ChatRecordInfo chatRecordInfo) {
+        taskExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                userRepository.appendChatRecord(chatRecordInfo);
+            }
+        });
+    }
+
+    @Override
     public void addUserFriend(List<UserFriend> userFriendList) {
         userRepository.addUserFriend(userFriendList);
     }

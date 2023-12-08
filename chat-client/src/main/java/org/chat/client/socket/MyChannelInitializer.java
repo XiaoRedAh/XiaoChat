@@ -3,10 +3,7 @@ package org.chat.client.socket;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.SocketChannel;
 import org.chat.client.application.UIService;
-import org.chat.client.socket.handler.AddFriendHandler;
-import org.chat.client.socket.handler.LoginHandler;
-import org.chat.client.socket.handler.SearchFriendHandler;
-import org.chat.client.socket.handler.TalkNoticeHandler;
+import org.chat.client.socket.handler.*;
 import org.chat.server.codec.ObjDecoder;
 import org.chat.server.codec.ObjEncoder;
 
@@ -29,6 +26,7 @@ public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
                 .addLast(new AddFriendHandler(uiService))
                 .addLast(new SearchFriendHandler(uiService))
                 .addLast(new TalkNoticeHandler(uiService))
+                .addLast(new MsgHandler(uiService))
                 .addLast(new ObjEncoder()); //对象编码器
 
     }
