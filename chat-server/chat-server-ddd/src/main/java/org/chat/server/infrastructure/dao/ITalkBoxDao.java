@@ -16,4 +16,10 @@ import java.util.List;
 public interface ITalkBoxDao {
 
     List<TalkBox> queryTalkBoxList(String userId);
+
+    Object queryTalkBox(String userId, String talkId);
+
+    void addTalkBox(TalkBox talkBox);
+
+    void deleteUserTalk(String userId, String talkId);
 }

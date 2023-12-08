@@ -22,9 +22,6 @@
         <module name="chat-server-ddd" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="XiaoChat" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

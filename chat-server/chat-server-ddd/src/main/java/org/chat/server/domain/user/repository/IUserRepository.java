@@ -2,7 +2,6 @@ package org.chat.server.domain.user.repository;
 
 import org.chat.server.domain.user.model.*;
 import org.chat.server.infrastructure.po.UserFriend;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -65,4 +64,18 @@ public interface IUserRepository {
      */
     void addUserFriend(List<UserFriend> userFriendList);
 
+    /**
+     * 添加对话框
+     * @param userId   用户ID
+     * @param talkId   好友ID
+     * @param talkType 对话框类型[0好友、1群组]
+     */
+    void addTalkBoxInfo(String userId, String talkId, int talkType);
+
+    /**
+     * 删除用户对话框
+     * @param userId  用户ID
+     * @param talkId  对话框ID
+     */
+    void deleteUserTalk(String userId, String talkId);
 }

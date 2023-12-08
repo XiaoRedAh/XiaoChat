@@ -1,12 +1,13 @@
 package org.chat.client.event;
 
-import com.alibaba.fastjson.JSON;
 import io.netty.channel.Channel;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
 import org.chat.client.infrastructure.util.BeanUtil;
 import org.chat.server.protocol.friend.AddFriendRequest;
 import org.chat.server.protocol.friend.SearchFriendRequest;
+import org.chat.server.protocol.talk.DelTalkRequest;
+import org.chat.server.protocol.talk.TalkNoticeRequest;
 import org.chat.ui.view.chat.IChatEvent;
 
 import java.util.Date;
@@ -26,19 +27,31 @@ public class ChatEvent implements IChatEvent {
 
     }
 
+    /**
+     * 对好友点击“发送消息”按钮时触发，向服务端发送对话通知请求
+     */
     @Override
     public void doEventAddTalkUser(String userId, String userFriendId) {
-
+        Channel channel = BeanUtil.getBean("Channel", Channel.class);
+        channel.writeAndFlush(new TalkNoticeRequest(userId, userFriendId, 0));
     }
 
+    /**
+     * 对群组点击“发送消息”按钮时触发，向服务端发送对话通知请求
+     */
     @Override
     public void doEventAddTalkGroup(String userId, String groupId) {
-
+        Channel channel = BeanUtil.getBean("Channel", Channel.class);
+        channel.writeAndFlush(new TalkNoticeRequest(userId, groupId, 1));
     }
 
+    /**
+     * 用户删除一个对话框时触发，向服务端发送删除对话框请求
+     */
     @Override
     public void doEventDelTalkUser(String userId, String talkId) {
-
+        Channel channel = BeanUtil.getBean("Channel", Channel.class);
+        channel.writeAndFlush(new DelTalkRequest(userId, talkId));
     }
 
     /**

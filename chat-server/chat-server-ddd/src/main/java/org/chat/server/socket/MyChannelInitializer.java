@@ -5,9 +5,7 @@ import io.netty.channel.socket.SocketChannel;
 import org.chat.server.application.UserService;
 import org.chat.server.codec.ObjDecoder;
 import org.chat.server.codec.ObjEncoder;
-import org.chat.server.socket.handler.AddFriendHandler;
-import org.chat.server.socket.handler.LoginHandler;
-import org.chat.server.socket.handler.SearchFriendHandler;
+import org.chat.server.socket.handler.*;
 
 /**
  * @author XiaoRed
@@ -28,6 +26,8 @@ public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
                 .addLast(new LoginHandler(userService))
                 .addLast(new SearchFriendHandler(userService))
                 .addLast(new AddFriendHandler(userService))
+                .addLast(new TalkNoticeHandler(userService))
+                .addLast(new DelTalkHandler(userService))
                 .addLast(new ObjEncoder()); //对象编码器
     }
 }

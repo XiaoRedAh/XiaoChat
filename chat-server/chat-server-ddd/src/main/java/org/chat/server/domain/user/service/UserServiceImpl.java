@@ -65,6 +65,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void addTalkBoxInfo(String userId, String talkId, int talkType) {
+        userRepository.addTalkBoxInfo(userId, talkId, talkType);
+    }
+
+    @Override
+    public void deleteUserTalk(String userId, String talkId) {
+        userRepository.deleteUserTalk(userId, talkId);
+    }
+
+    @Override
     public void addUserFriend(List<UserFriend> userFriendList) {
         userRepository.addUserFriend(userFriendList);
     }

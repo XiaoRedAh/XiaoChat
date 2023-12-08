@@ -5,4 +5,19 @@
         select talkId, talkType from talk_box where userId = #{userId}
     </select>
 
+    <select id="queryTalkBox" parameterType="java.lang.String" resultType="org.chat.server.infrastructure.po.TalkBox">
+        select id from talk_box where userId = #{userId} and talkId = #{talkId}
+    </select>
+
+    <insert id="addTalkBox" parameterType="org.chat.server.infrastructure.po.TalkBox">
+        INSERT INTO talk_box
+            ( userId, talkId, talkType, createTime, updateTime )
+        VALUES
+            ( #{userId}, #{talkId}, #{talkType}, now(), now())
+    </insert>
+
+    <delete id="deleteUserTalk" parameterType="java.lang.String">
+        delete from talk_box where userId = #{userId} and talkId = #{talkId}
+    </delete>
+
 </mapper>

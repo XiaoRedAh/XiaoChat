@@ -6,6 +6,9 @@ import org.chat.server.protocol.friend.SearchFriendRequest;
 import org.chat.server.protocol.friend.SearchFriendResponse;
 import org.chat.server.protocol.login.LoginRequest;
 import org.chat.server.protocol.login.LoginResponse;
+import org.chat.server.protocol.talk.DelTalkRequest;
+import org.chat.server.protocol.talk.TalkNoticeRequest;
+import org.chat.server.protocol.talk.TalkNoticeResponse;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -32,6 +35,9 @@ public abstract class Packet {
         packetType.put(Command.AddFriendResponse, AddFriendResponse.class);
         packetType.put(Command.SearchFriendRequest, SearchFriendRequest.class);
         packetType.put(Command.SearchFriendResponse, SearchFriendResponse.class);
+        packetType.put(Command.TalkNoticeRequest, TalkNoticeRequest.class);
+        packetType.put(Command.TalkNoticeResponse, TalkNoticeResponse.class);
+        packetType.put(Command.DelTalkRequest, DelTalkRequest.class);
     }
 
     /**

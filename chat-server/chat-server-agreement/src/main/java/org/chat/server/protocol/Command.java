@@ -12,4 +12,7 @@ public interface Command {
     Byte AddFriendResponse = 4;
     Byte SearchFriendRequest = 5;
     Byte SearchFriendResponse = 6;
+    Byte TalkNoticeRequest = 7;
+    Byte TalkNoticeResponse = 8;
+    Byte DelTalkRequest = 9;
 }

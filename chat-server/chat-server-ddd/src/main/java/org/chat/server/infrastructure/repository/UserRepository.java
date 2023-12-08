@@ -145,4 +145,22 @@ public class UserRepository implements IUserRepository {
         } catch (DuplicateKeyException ignored) {
         }
     }
+
+    @Override
+    public void addTalkBoxInfo(String userId, String talkId, int talkType) {
+        try {
+            if (null != talkBoxDao.queryTalkBox(userId, talkId)) return;
+            TalkBox talkBox = new TalkBox();
+            talkBox.setUserId(userId);
+            talkBox.setTalkId(talkId);
+            talkBox.setTalkType(talkType);
+            talkBoxDao.addTalkBox(talkBox);
+        } catch (DuplicateKeyException ignored) {
+        }
+    }
+
+    @Override
+    public void deleteUserTalk(String userId, String talkId) {
+        talkBoxDao.deleteUserTalk(userId, talkId);
+    }
 }

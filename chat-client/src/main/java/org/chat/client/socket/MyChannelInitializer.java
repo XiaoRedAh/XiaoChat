@@ -6,10 +6,10 @@ import org.chat.client.application.UIService;
 import org.chat.client.socket.handler.AddFriendHandler;
 import org.chat.client.socket.handler.LoginHandler;
 import org.chat.client.socket.handler.SearchFriendHandler;
+import org.chat.client.socket.handler.TalkNoticeHandler;
 import org.chat.server.codec.ObjDecoder;
 import org.chat.server.codec.ObjEncoder;
 
-import javax.annotation.Resource;
 
 /**
  * @author XiaoRed
@@ -28,6 +28,7 @@ public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
                 .addLast(new LoginHandler(uiService))
                 .addLast(new AddFriendHandler(uiService))
                 .addLast(new SearchFriendHandler(uiService))
+                .addLast(new TalkNoticeHandler(uiService))
                 .addLast(new ObjEncoder()); //对象编码器
 
     }
