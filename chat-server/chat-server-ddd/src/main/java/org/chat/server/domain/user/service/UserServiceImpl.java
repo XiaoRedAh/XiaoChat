@@ -85,6 +85,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<String> queryUserGroupsIdList(String userId) {
+        return userRepository.queryUserGroupsIdList(userId);
+    }
+
+    @Override
     public void addUserFriend(List<UserFriend> userFriendList) {
         userRepository.addUserFriend(userFriendList);
     }

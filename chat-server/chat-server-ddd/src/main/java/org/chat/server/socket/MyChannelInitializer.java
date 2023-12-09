@@ -29,6 +29,7 @@ public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
                 .addLast(new TalkNoticeHandler(userService))
                 .addLast(new DelTalkHandler(userService))
                 .addLast(new MsgHandler(userService))
+                .addLast(new MsgGroupHandler(userService))
                 .addLast(new ObjEncoder()); //对象编码器
     }
 }

@@ -6,6 +6,8 @@ import org.chat.server.protocol.friend.SearchFriendRequest;
 import org.chat.server.protocol.friend.SearchFriendResponse;
 import org.chat.server.protocol.login.LoginRequest;
 import org.chat.server.protocol.login.LoginResponse;
+import org.chat.server.protocol.msg.MsgGroupRequest;
+import org.chat.server.protocol.msg.MsgGroupResponse;
 import org.chat.server.protocol.msg.MsgRequest;
 import org.chat.server.protocol.msg.MsgResponse;
 import org.chat.server.protocol.talk.DelTalkRequest;
@@ -42,6 +44,8 @@ public abstract class Packet {
         packetType.put(Command.DelTalkRequest, DelTalkRequest.class);
         packetType.put(Command.MsgRequest, MsgRequest.class);
         packetType.put(Command.MsgResponse, MsgResponse.class);
+        packetType.put(Command.MsgGroupRequest, MsgGroupRequest.class);
+        packetType.put(Command.MsgGroupResponse, MsgGroupResponse.class);
     }
 
     /**

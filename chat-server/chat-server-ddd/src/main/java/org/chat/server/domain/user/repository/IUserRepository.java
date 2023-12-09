@@ -84,4 +84,11 @@ public interface IUserRepository {
      * @param chatRecordInfo 聊天记录信息
      */
     void appendChatRecord(ChatRecordInfo chatRecordInfo);
+
+    /**
+     * 查询用户群组ID集合
+     * @param userId  用户ID
+     * @return        用户群组ID集合
+     */
+    List<String> queryUserGroupsIdList(String userId);
 }

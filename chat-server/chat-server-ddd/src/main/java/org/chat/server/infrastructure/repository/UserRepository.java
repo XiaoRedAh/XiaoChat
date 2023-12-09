@@ -175,4 +175,9 @@ public class UserRepository implements IUserRepository {
         chatRecord.setTalkType(chatRecordInfo.getTalkType());
         chatRecordDao.appendChatRecord(chatRecord);
     }
+
+    @Override
+    public List<String> queryUserGroupsIdList(String userId) {
+        return userGroupDao.queryUserGroupsIdList(userId);
+    }
 }

@@ -17,4 +17,6 @@ public interface Command {
     Byte DelTalkRequest = 9;
     Byte MsgRequest = 10;
     Byte MsgResponse = 11;
+    Byte MsgGroupRequest = 12;
+    Byte MsgGroupResponse = 13;
 }

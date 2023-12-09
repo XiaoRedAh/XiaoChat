@@ -37,6 +37,11 @@ public class LoginHandler extends MyHandler<LoginRequest> {
         //登录校验通过
         //1. 将用户与channel的对应关系存储起来，方便后续服务端处理聊天业务
         SocketChannelUtil.addChannel(msg.getUserId(), channel);
+        //1.2 将用户与群组的channelGroup的对应关系存储起来，方便后续服务端处理群聊
+        List<String> groupsIdList = userService.queryUserGroupsIdList(msg.getUserId());
+        for (String groupId : groupsIdList) {
+            SocketChannelUtil.addChannelGroup(groupId, channel);
+        }
         //2. 初始化数据：用户信息
         UserInfo userInfo = userService.queryUserInfo(msg.getUserId());
         //3. 初始化数据：好友列表
