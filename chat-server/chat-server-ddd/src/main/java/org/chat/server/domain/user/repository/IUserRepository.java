@@ -91,4 +91,11 @@ public interface IUserRepository {
      * @return        用户群组ID集合
      */
     List<String> queryUserGroupsIdList(String userId);
+
+    /**
+     * 查询用户群组对话框
+     * @param userId 用户Id
+     * @return       群组Id
+     */
+    List<String> queryTalkBoxGroupsIdList(String userId);
 }

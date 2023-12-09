@@ -5,7 +5,9 @@ import javafx.stage.Stage;
 import org.chat.client.application.UIService;
 import org.chat.client.event.ChatEvent;
 import org.chat.client.event.LoginEvent;
+import org.chat.client.infrastructure.util.CacheUtil;
 import org.chat.client.socket.NettyClient;
+import org.chat.server.protocol.login.ReconnectRequest;
 import org.chat.ui.view.chat.ChatController;
 import org.chat.ui.view.chat.IChatMethod;
 import org.chat.ui.view.login.ILoginMethod;
@@ -53,6 +55,24 @@ public class Application extends javafx.application.Application {
             Thread.sleep(500);
         }
         logger.info("Netty客户端连接服务完成 {}", channel.localAddress());
+
+        //客户端定时检查连接：Channel状态定时巡检；3秒后每5秒执行一次
+        scheduledExecutorService.scheduleAtFixedRate(() -> {
+            while (!nettyClient.isActive()) {
+                logger.info("通信管道连接检查：通信管道状态 " + nettyClient.isActive());
+                try {
+                    logger.info("通信管道连接检查：断线重连[Begin]");
+                    //Netty重新启动一次，拿到新的channel
+                    Channel freshChannel = executorService.submit(nettyClient).get();
+                    if (null == CacheUtil.userId) continue;
+                    //通过新的channel向服务端发送断线重连请求
+                    freshChannel.writeAndFlush(new ReconnectRequest(CacheUtil.userId));
+                    logger.info("通信管道连接检查：断线重连[End-Success]");
+                } catch (InterruptedException | ExecutionException e) {
+                    System.out.println("通信管道连接检查：断线重连[End-Error]");
+                }
+            }
+        }, 3, 5, TimeUnit.SECONDS);
 
     }
 

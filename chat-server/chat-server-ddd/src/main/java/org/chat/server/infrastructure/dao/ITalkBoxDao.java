@@ -22,4 +22,6 @@ public interface ITalkBoxDao {
     void addTalkBox(TalkBox talkBox);
 
     void deleteUserTalk(String userId, String talkId);
+
+    List<String> queryTalkBoxGroupsIdList(String userId);
 }

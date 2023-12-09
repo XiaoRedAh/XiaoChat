@@ -180,4 +180,9 @@ public class UserRepository implements IUserRepository {
     public List<String> queryUserGroupsIdList(String userId) {
         return userGroupDao.queryUserGroupsIdList(userId);
     }
+
+    @Override
+    public List<String> queryTalkBoxGroupsIdList(String userId) {
+        return talkBoxDao.queryTalkBoxGroupsIdList(userId);
+    }
 }

@@ -2,6 +2,7 @@ package org.chat.client.event;
 
 import io.netty.channel.Channel;
 import org.chat.client.infrastructure.util.BeanUtil;
+import org.chat.client.infrastructure.util.CacheUtil;
 import org.chat.server.protocol.login.LoginRequest;
 import org.chat.ui.view.login.ILoginEvent;
 
@@ -19,6 +20,7 @@ public class LoginEvent implements ILoginEvent {
         Channel channel = BeanUtil.getBean("Channel");
         //客户端通过连接的信道，直接将登录请求发送给服务端校验
         channel.writeAndFlush(new LoginRequest(userId, userPassword));
-        //todo：断线重连业务
+        //将用户id缓存到本地，发送断线重连请求时要用到
+        CacheUtil.userId = userId;
     }
 }

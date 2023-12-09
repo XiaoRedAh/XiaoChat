@@ -90,6 +90,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<String> queryTalkBoxGroupsIdList(String userId) {
+        return userRepository.queryTalkBoxGroupsIdList(userId);
+    }
+
+    @Override
     public void addUserFriend(List<UserFriend> userFriendList) {
         userRepository.addUserFriend(userFriendList);
     }
